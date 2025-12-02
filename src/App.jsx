@@ -11,6 +11,18 @@ import Navigation from "./components/Navigation";
 export default function App() {
   const [showAnimatedIntro, setShowAnimatedIntro] = useState(true);
   const [showAvatarIntro, setShowAvatarIntro] = useState(false);
+  const [introCompleted, setIntroCompleted] = useState(false);
+
+  useEffect(() => {
+    // Check if intro has been completed in this session
+    const isIntroCompleted = sessionStorage.getItem('introCompleted');
+    
+    if (isIntroCompleted) {
+      // Intro already completed in this session, don't show again
+      setShowAnimatedIntro(false);
+      setIntroCompleted(true);
+    }
+  }, []);
 
   const handleAnimatedIntroComplete = () => {
     setShowAnimatedIntro(false);
@@ -19,6 +31,9 @@ export default function App() {
 
   const handleAvatarIntroComplete = () => {
     setShowAvatarIntro(false);
+    setIntroCompleted(true);
+    // Mark intro as completed in sessionStorage
+    sessionStorage.setItem('introCompleted', 'true');
   };
 
   return (
@@ -26,13 +41,17 @@ export default function App() {
       <div className="min-h-screen bg-cyan-50">
         {showAnimatedIntro && <GameIntro onIntroComplete={handleAnimatedIntroComplete} />}
         {showAvatarIntro && <GameIntroWithAvatar onComplete={handleAvatarIntroComplete} />}
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/level" element={<Level />} />
-          <Route path="/quiz/:id" element={<Quiz />} />
-          <Route path="/result" element={<Result />} />
-        </Routes>
+        {!showAnimatedIntro && !showAvatarIntro && (
+          <>
+            <Navigation />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/level" element={<Level />} />
+              <Route path="/quiz/:id" element={<Quiz />} />
+              <Route path="/result" element={<Result />} />
+            </Routes>
+          </>
+        )}
       </div>
     </BrowserRouter>
   );
