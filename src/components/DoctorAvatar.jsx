@@ -22,7 +22,7 @@ const DoctorAvatar = ({ healthStatus, message, wrongAnswers }) => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-slate-800/50 rounded-2xl shadow-xl p-6 border border-white/10 backdrop-blur-sm"
+      className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-xl p-6 border border-cyan-500/30 backdrop-blur-sm"
     >
       <div className="flex items-start">
         <div className="text-6xl mr-4">
@@ -41,8 +41,8 @@ const DoctorAvatar = ({ healthStatus, message, wrongAnswers }) => {
             </span>
           </div>
           
-          <div className="bg-slate-700/50 rounded-xl p-4 mb-4">
-            <p className="text-slate-200">{message}</p>
+          <div className="bg-slate-700/50 rounded-xl p-4 mb-4 border border-cyan-500/20">
+            <p className="text-slate-200 italic">"{message}"</p>
           </div>
           
           <div className="flex items-center">

@@ -46,7 +46,7 @@ const CrackingHeart = ({ crackedPoints = [], totalPoints = 10, onPointClick = nu
   const healthStatus = getHealthStatus();
 
   return (
-    <div className="bg-white rounded-2xl border border-cyan-100 shadow-lg p-6">
+    <div className="bg-gradient-to-br from-white to-cyan-50 rounded-2xl border border-cyan-200 shadow-lg p-6">
       <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">Heart Health Monitor</h3>
       
       <div className="relative flex items-center justify-center mb-6">
@@ -87,7 +87,7 @@ const CrackingHeart = ({ crackedPoints = [], totalPoints = 10, onPointClick = nu
                   </div>
                   
                   {/* Label */}
-                  <div className="absolute top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-medium bg-white/80 px-2 py-1 rounded-lg shadow-sm">
+                  <div className="absolute top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-medium bg-white/80 px-2 py-1 rounded-lg shadow-sm border border-cyan-100">
                     {point.name}
                   </div>
                 </div>
@@ -136,7 +136,7 @@ const CrackingHeart = ({ crackedPoints = [], totalPoints = 10, onPointClick = nu
       </div>
       
       {/* Health Status Indicator */}
-      <div className="bg-gray-50 rounded-xl p-4">
+      <div className="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-4 border border-cyan-100">
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-medium text-gray-700">Heart Health Status</span>
           <span className={`text-sm font-bold px-2 py-1 rounded-full ${healthStatus.bgColor} ${healthStatus.color}`}>
@@ -162,7 +162,7 @@ const CrackingHeart = ({ crackedPoints = [], totalPoints = 10, onPointClick = nu
       {/* Warning Message */}
       {crackedPoints.length > 0 && (
         <motion.div 
-          className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg"
+          className="mt-4 p-3 bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-lg"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
         >

@@ -37,9 +37,9 @@ const GameIntroWithAvatar = ({ onComplete }) => {
     {
       id: 5,
       title: "Ready for Adventure?",
-      content: "You'll explore 7 levels of heart health knowledge, from basics to mastery!",
+      content: "You'll explore heart health knowledge through 10 progressive challenges!",
       image: "🏆",
-      instruction: "Each level unlocks new powers to protect your heart. Are you ready?"
+      instruction: "Each correct answer protects your heart. Are you ready to become a Heart Hero?"
     }
   ];
 
@@ -70,24 +70,24 @@ const GameIntroWithAvatar = ({ onComplete }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 flex items-center justify-center p-4">
       <div className="max-w-4xl w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-slate-800/50 backdrop-blur-lg rounded-3xl border border-white/10 shadow-2xl overflow-hidden"
+          className="bg-white/80 backdrop-blur-sm rounded-3xl border border-cyan-100 shadow-xl overflow-hidden"
         >
           {/* Header with progress */}
-          <div className="bg-slate-900/50 p-4 border-b border-white/10">
+          <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-4 rounded-t-3xl">
             <div className="flex justify-between items-center mb-2">
               <h1 className="text-2xl font-bold text-white">Heart Hero Adventure</h1>
-              <div className="text-slate-400 text-sm">
+              <div className="text-cyan-100 text-sm">
                 Slide {currentSlide + 1} of {slides.length}
               </div>
             </div>
-            <div className="w-full bg-slate-700 rounded-full h-2">
+            <div className="w-full bg-cyan-200/50 rounded-full h-2">
               <motion.div 
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full"
+                className="bg-white h-2 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
                 transition={{ duration: 0.5 }}
@@ -97,7 +97,7 @@ const GameIntroWithAvatar = ({ onComplete }) => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3">
             {/* Avatar Section */}
-            <div className="lg:col-span-1 bg-gradient-to-b from-slate-800/50 to-slate-900/50 p-6 flex flex-col items-center justify-center border-r border-white/10">
+            <div className="lg:col-span-1 bg-gradient-to-b from-cyan-50 to-blue-50 p-6 flex flex-col items-center justify-center border-r border-cyan-100">
               <motion.div
                 key={currentSlide}
                 initial={{ opacity: 0, y: 20 }}
@@ -115,9 +115,9 @@ const GameIntroWithAvatar = ({ onComplete }) => {
                 transition={{ delay: 0.4 }}
                 className="text-center"
               >
-                <h3 className="text-xl font-bold text-white mb-2">Dr. Heart</h3>
-                <div className="bg-slate-700/50 rounded-xl p-4">
-                  <p className="text-slate-200 text-sm">{currentSlideData.content}</p>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Dr. Heart</h3>
+                <div className="bg-white/50 rounded-xl p-4 border border-cyan-100">
+                  <p className="text-gray-700 text-sm">{currentSlideData.content}</p>
                 </div>
               </motion.div>
             </div>
@@ -137,10 +137,10 @@ const GameIntroWithAvatar = ({ onComplete }) => {
                     <div className="text-6xl mb-6">
                       {currentSlideData.image}
                     </div>
-                    <h2 className="text-3xl font-bold text-white mb-4">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-4">
                       {currentSlideData.title}
                     </h2>
-                    <p className="text-xl text-slate-300 max-w-2xl">
+                    <p className="text-xl text-gray-600 max-w-2xl">
                       {currentSlideData.instruction}
                     </p>
                   </div>
@@ -152,8 +152,8 @@ const GameIntroWithAvatar = ({ onComplete }) => {
                       disabled={currentSlide === 0}
                       className={`px-6 py-3 rounded-xl font-bold flex items-center ${
                         currentSlide === 0
-                          ? "bg-slate-700 text-slate-500 cursor-not-allowed"
-                          : "bg-slate-700 text-white hover:bg-slate-600 transition"
+                          ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                          : "bg-white text-gray-700 border border-cyan-200 hover:bg-cyan-50 transition shadow-sm"
                       }`}
                     >
                       ← Previous
@@ -164,14 +164,14 @@ const GameIntroWithAvatar = ({ onComplete }) => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={handleStartGame}
-                        className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-xl font-bold text-lg shadow-lg hover:from-emerald-600 hover:to-teal-600 transition"
+                        className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-bold text-lg shadow-lg hover:from-cyan-600 hover:to-blue-600 transition"
                       >
-                        START GAME! 🚀
+                        START CHALLENGE! 🚀
                       </motion.button>
                     ) : (
                       <button
                         onClick={handleNext}
-                        className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-xl font-bold hover:from-blue-600 hover:to-indigo-600 transition"
+                        className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-bold hover:from-cyan-600 hover:to-blue-600 transition shadow-sm"
                       >
                         Next →
                       </button>
