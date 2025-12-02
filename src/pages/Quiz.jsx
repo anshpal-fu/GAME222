@@ -516,42 +516,30 @@ export default function QuizPage() {
               <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-pink-400 rounded-full blur-2xl opacity-40 -z-10"></div>
               
               {/* Heart character */}
-              <div className="relative bg-gradient-to-br from-red-500 to-pink-500 rounded-full p-8 shadow-2xl">
-                <div className="bg-gradient-to-br from-red-400 to-pink-400 rounded-full p-12">
-                  <div className="relative w-40 h-40">
-                    <img 
-                      src="/src/assets/heart.png" 
-                      alt="Heart Character" 
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
+              <div className="relative">
+                <div className="relative w-64 h-64">
+                  <img 
+                    src="/src/assets/heart.png" 
+                    alt="Heart Character" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
               
-              {/* Expressive eyes animation */}
+              {/* Heart pulse animation */}
               <motion.div
-                className="absolute top-1/3 left-1/4 w-4 h-4 bg-black rounded-full"
+                className="absolute inset-0 bg-gradient-to-br from-red-400 to-pink-400 rounded-full blur-xl opacity-30 -z-10"
                 animate={{
-                  scaleY: [1, 1, 0.1, 1],
+                  scale: [1, 1.05, 1],
+                  opacity: [0.3, 0.5, 0.3]
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 2,
                   repeat: Infinity,
-                  repeatDelay: 2
+                  repeatType: "reverse"
                 }}
               />
-              <motion.div
-                className="absolute top-1/3 right-1/4 w-4 h-4 bg-black rounded-full"
-                animate={{
-                  scaleY: [1, 1, 0.1, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatDelay: 2,
-                  delay: 0.5
-                }}
-              />
+              
             </motion.div>
             
             {/* Character name */}
